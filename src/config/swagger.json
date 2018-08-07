@@ -1,0 +1,72 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Email microservice for contact forms etc",
+    "version": "1.0.0",
+    "title": "Email Service",
+    "contact": {
+      "email": "n_scherman@hotmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "email",
+      "description": "Email service for sending email"
+    }
+  ],
+  "basePath": "/v1",
+  "paths": {
+    "/contact": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "summary": "Send a contact email to me",
+        "description": "",
+        "operationId": "sendEmail",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "email",
+            "schema": {
+              "type": "object",
+              "required": [
+                "returnEmail",
+                "content"
+              ],
+              "properties": {
+                "returnEmail": {
+                  "type": "string",
+                  "example": "test@example.com"
+                },
+                "content": {
+                  "type": "string",
+                  "example": "Hey, can you reach me here"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "123-345-6787"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Bad request data"
+          }
+        }
+      }
+    }
+  }
+}

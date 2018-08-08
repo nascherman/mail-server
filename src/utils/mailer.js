@@ -1,7 +1,6 @@
-const fs = require('fs');
 const path = require('path');
 const mailgun = require('mailgun-js')({
-    apiKey: fs.readFileSync(path.resolve(__dirname, '../config/api-key.txt'), {encoding: 'utf-8'}),
+    apiKey: process.env.API_KEY,
     domain: 'mail.nickscherman.com'
 });
 

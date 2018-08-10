@@ -1,0 +1,6 @@
+runtime: nodejs8
+
+# API_KEY is for mailgun api, MAIL_DOMAIN is the domain for the smtp server
+#env_variables:
+#  API_KEY: 
+#  MAIL_DOMAIN: mail.nickscherman.com

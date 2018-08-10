@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const swaggerize = require('swaggerize-express');
 const api = require('./config/swagger');
 
-const APP_PORT = 4545;
+const APP_PORT = process.env.PORT || 8080;
 const handlers = './handlers';
 
 const app = express();

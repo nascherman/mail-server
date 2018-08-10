@@ -1,7 +1,7 @@
 const path = require('path');
 const mailgun = require('mailgun-js')({
     apiKey: process.env.API_KEY,
-    domain: 'mail.nickscherman.com'
+    domain: process.env.MAIL_DOMAIN
 });
 
 class Mailer {

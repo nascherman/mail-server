@@ -38,11 +38,16 @@
             "schema": {
               "type": "object",
               "required": [
-                "returnEmail",
+                "name",
+                "email",
                 "content"
               ],
               "properties": {
-                "returnEmail": {
+                "name": {
+                  "type": "string",
+                  "example": "Jane Doe"
+                },
+                "email": {
                   "type": "string",
                   "example": "test@example.com"
                 },

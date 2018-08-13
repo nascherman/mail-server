@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "set API_KEY=test && nodemon --inspect src/index.js",
+    "dev": "set MAIL_DOMAIN=test&& set API_KEY=test&& nodemon --inspect src/index.js",
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,7 @@
     "assert": "^1.4.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "handlebars": "^4.0.11",
     "mailgun-js": "^0.20.0",
     "swaggerize-express": "^4.0.5"
   },

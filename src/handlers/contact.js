@@ -1,5 +1,6 @@
 const AppError = require('../utils/app-error');
 const Mailer = require('../utils/mailer');
+const Templater = require('../utils/templater');
 
 const nameRegex = new RegExp(/^.{5,}/);
 const emailRegex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/);
@@ -17,13 +18,13 @@ const post = (req, res, next) => {
             from: 'no-reply@mail.nickscherman.com',
             to: 'naschermanweb@gmail.com',
             subject: 'Contact form email',
-            text: `TEST ${content}`
+            html: Templater.createContact({name, email, content, phone})
         }, (err, resp) => {
             if (err) {
                 next(err);
+            } else {
+                res.sendStatus(204);
             }
-
-            res.sendStatus(204);
         });
     } else { // validation errors
         next(new AppError(400, formErrors));

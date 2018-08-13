@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Contact form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+
+</style>
+<body>
+    <div class="contact">
+        <h1>Contact from {{name}}</h1>
+        <p>The below contact message was sent at {{time}}:</p>
+
+        <div class="contact__message">
+            {{content}}
+
+            <p>Can be reached at {{email}}</p>
+        </div>
+
+        {{#if phone}}
+            <h2>Has chosen to provide their phone number - {{phone}}</h2>
+        {{/if}}
+    </div>
+</body>
+</html>

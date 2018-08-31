@@ -21,6 +21,14 @@
   "basePath": "/v1",
   "paths": {
     "/contact": {
+      "options": {
+        "summary": "Options request for contact mailer",
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        }
+      },
       "post": {
         "tags": [
           "Email"

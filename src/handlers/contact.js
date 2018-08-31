@@ -57,5 +57,8 @@ function findFormErrors(form) {
 }
 
 module.exports = {
-    post
+    post,
+    options: (req, res, next) => {
+        res.sendStatus(204);
+    }
 };

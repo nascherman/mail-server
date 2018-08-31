@@ -1,7 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const swaggerize = require('swaggerize-express');
+
 const api = require('./config/swagger');
+
+const headerMiddleware = require('./middleware/header.middleware');
 
 const APP_PORT = process.env.PORT || 8080;
 const handlers = './handlers';
@@ -9,11 +12,13 @@ const handlers = './handlers';
 const app = express();
 
 app.use(bodyParser.json());
+app.use(headerMiddleware);
+
 app.use('/', swaggerize({api, handlers}));
 
 // 404 response
 app.use((req, res, next) => {
-   res.status(404).send('API endpoint not found');
+    res.status(404).send('API endpoint not found');
 });
 
 // Error response
